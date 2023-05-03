@@ -4,8 +4,11 @@ import com.fasterxml.jackson.dataformat.xml.XmlMapper
 import src.main.kotlin.models.Flat
 import java.io.File
 import java.io.FileOutputStream
-
+/**
+ * Один из классов команд
+ */
 class Save : Command() {
+
     override val commandName: String = "save"
     override fun writeString() {
         println("Сохранение...")

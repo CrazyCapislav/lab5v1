@@ -7,8 +7,15 @@ import src.main.kotlin.models.Flat
 import src.main.kotlin.other.MyHashSet
 import java.io.File
 import java.io.FileOutputStream
-
+/**
+ * Класс CommandManager предоставляет способ управления и выполнения команд, вводимых пользователем.
+ *
+ * @since 1.0
+ */
 class CommandManager {
+    /**
+     * Запускает менеджер команд с указанным файлом коллекции.
+     */
     fun start(arg:String){
         val help = Help()
         val add = Add()
@@ -29,6 +36,9 @@ class CommandManager {
             "file1.txt"
         }
         var file = File(collectionFolder)
+        /**
+         * Проверка файла с данными коллекции
+         */
         if (!file.exists()) {
             println("Файл не найден: $collectionFolder")
             file = File("file1.txt")
@@ -51,11 +61,17 @@ class CommandManager {
         }
         val xmlMapper = XmlMapper.builder().build()
         var xmlHashSet: HashSet<Flat> = xmlMapper.readValue(file, object : TypeReference<HashSet<Flat>>() {})
+        /**
+         * Класс-оболочка для получения времени инициализации
+         */
         val initDate = MyHashSet(xmlHashSet).creationDate
         while(true) {
             arrayId = mutableListOf()
             xmlHashSet.forEach { arrayId.add(it.id) }
             println("Введи команду, чтобы продолжить! (help - узнать все команды)")
+            /**
+             * Варианты ввода
+             */
             when (val read = readLine()) {
                 "help" -> help.writeString()
                 "add" -> {add.start(xmlHashSet, arrayId);xmlHashSet.forEach { arrayId.add(it.id) }}
@@ -72,6 +88,9 @@ class CommandManager {
                 "UTTMOF" -> UTTMOF.uniqueTime(xmlHashSet)
                 null -> {println("WTF"); break
                 }
+                /**
+                 * Ввод Ctrl+D приводит к выходу из программы (эквивалент exit)
+                 */
                 else -> {
                     val parts = read.split(" ")
                     if (parts.size == 2){

@@ -4,16 +4,39 @@ import src.main.kotlin.models.Coordinates
 import src.main.kotlin.models.Flat
 import src.main.kotlin.models.Furnish
 import src.main.kotlin.models.House
-
+/**
+ * Класс, реализующий команду добавления элемента.
+ *
+ * @since 1.0
+ */
 class Add : Command() {
+    /**
+     * Название команды.
+     */
     override val commandName: String = "add {element}"
+    /**
+     * Вывод строки при запуске команды.
+     */
     override fun writeString() {
         println("Введите имя элемента")
     }
+    /**
+     * Создание нового элемента и добавление его в хранилище.
+     *
+     * @param hashSet Хранилище элементов.
+     * @param arrayId Массив идентификаторов элементов.
+     * @return Хранилище элементов с добавленным новым элементом.
+     */
     fun start(hashSet: HashSet<Flat>, arrayId : MutableList<Long>):HashSet<Flat>{
         addElement(hashSet, createElement(arrayId))
         return hashSet
     }
+    /**
+     * Создание нового элемента на основе введенных пользователем данных.
+     *
+     * @param arrayId Массив идентификаторов элементов.
+     * @return Новый элемент.
+     */
     fun createElement(arrayId : MutableList<Long>): Flat {
         println("Генерация id")
         var i: Long = 1
@@ -160,6 +183,12 @@ class Add : Command() {
             house
         )
     }}
+/**
+ * Проверка строки на наличие пустых символов.
+ *
+ * @param string Входная строка.
+ * @return Строка без пустых символов.
+ */
     private fun nullBlankCheck(string: String):String{
         var string1 = string
         while (string1.isBlank()){
@@ -168,6 +197,12 @@ class Add : Command() {
         }
         return string1
     }
+/**
+ * Создание объекта типа Furnish на основе строки.
+ *
+ * @param string Строка с наличием мебели.
+ * @return Объект типа Furnish.
+ */
 fun createFurnish(string: String):Furnish{
     return when(string){
         "FINE" -> Furnish.FINE
@@ -177,15 +212,41 @@ fun createFurnish(string: String):Furnish{
         }
     }
     }
+/**
+ * Создание объекта типа Coordinates.
+ *
+ * @param x Координата x.
+ * @param y Координата y.
+ * @return Объект типа Coordinates.
+ */
     private fun createCoordinates(x: Long, y: Long): Coordinates {
         return Coordinates(x, y)
     }
+/**
+ * Создание объекта типа House на основе переданных параметров.
+ *
+ * @param name Название дома.
+ * @param year Год постройки дома.
+ * @param numberOfLifts Количество лифтов в доме.
+ * @return Объект типа House.
+ */
     fun createHouse(name: String, year: Long, numberOfLifts: Long): House {
         return House(name, year, numberOfLifts)
     }
+/**
+ * Добавление элемента в HashSet.
+ *
+ * @param hashSet HashSet, в который нужно добавить элемент.
+ * @param element Добавляемый элемент.
+ */
     private fun addElement(hashSet: HashSet<Flat>, element: Flat){
         hashSet.add(element)
     }
+/**
+ * Получение ввода от пользователя в формате Long.
+ *
+ * @return Введенное пользователем значение в формате Long.
+ */
 fun getLongInput(): Long {
     while (true) {
         try {
@@ -196,6 +257,11 @@ fun getLongInput(): Long {
         }
     }
 }
+/**
+ * Получение ввода от пользователя в формате Int.
+ *
+ * @return Введенное пользователем значение в формате Int.
+ */
 fun getIntInput(): Int {
     while (true) {
         try {
@@ -206,6 +272,11 @@ fun getIntInput(): Int {
         }
     }
 }
+/**
+ * Получение ввода от пользователя в формате Double.
+ *
+ * @return Введенное пользователем значение в формате Double.
+ */
 fun getDoubleInput(): Double {
     while (true) {
         try {

@@ -1,7 +1,9 @@
 package src.main.kotlin.commands
 
 import src.main.kotlin.models.Flat
-
+/**
+ * Один из классов команд
+ */
 class AddIfMax : Command() {
     override val commandName: String = "add_if_max {element}"
     override fun writeString() {

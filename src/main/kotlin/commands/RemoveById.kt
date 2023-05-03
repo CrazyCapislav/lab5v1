@@ -1,8 +1,11 @@
 package src.main.kotlin.commands
 
 import src.main.kotlin.models.Flat
-
+/**
+ * Один из классов команд
+ */
 class RemoveById : Command() {
+
     override val commandName: String = "remove_by_id id"
     override fun writeString() {
         println("Удалить по id")

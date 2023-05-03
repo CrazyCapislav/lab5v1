@@ -3,8 +3,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.8.10"
-//    kotlin("plugin.serialization") version "1.8.10"
     id("com.github.johnrengelman.shadow") version "7.1.2"
+    id("org.jetbrains.dokka") version "1.8.10"
     application
 }
 
@@ -19,7 +19,6 @@ dependencies {
     testImplementation(kotlin("test"))
     implementation("org.jetbrains.kotlin:kotlin-stdlib")
     testImplementation ("io.mockk:mockk:1.13.4")
-//    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
     implementation(kotlin("stdlib-jdk8"))
     implementation("com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.14.2")
 }

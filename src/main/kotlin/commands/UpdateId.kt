@@ -6,10 +6,16 @@ import src.main.kotlin.models.Furnish
 import src.main.kotlin.models.House
 
 class UpdateId : Command() {
+    /**
+     * Изменяет элемент коллекции по ID
+     */
     override val commandName: String = "update id {element}"
     override fun writeString() {
         println("Изменение элемента")
     }
+    /**
+     * Частично копирует команду Add
+     */
     fun update(flats: HashSet<Flat>, id:Long ){
         val flat = flats.find{it.id == id}
         if (flat == null) {
@@ -18,6 +24,7 @@ class UpdateId : Command() {
         }
         println("Текущее имя: ${flat.name}, текущие координаты: ${flat.coordinates}, текущая площадь: ${flat.area}, текущее количество комнат: ${flat.numberOfRooms}, текущая жилплощадь: ${flat.livingSpace}, текущее расстояние до метро: ${flat.timeToMetroOnFoot}, текущая мебель: ${flat.furnish}, текущий дом:${flat.house}")
         print("Введите новое имя: ")
+
         val newName = readLine().toString()
         println("Введите новые координаты:x ")
         val newX = getLongInput()

@@ -1,0 +1,9 @@
+$dokka.format:javadoc-v1
+$dokka.linkExtension:html
+
+src.main.kotlin
+src.main.kotlin.commands
+src.main.kotlin.managers
+src.main.kotlin.models
+src.main.kotlin.other
+

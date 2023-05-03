@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="models.FlatTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-05-03T14:41:10" hostname="DESKTOP-RJ24N1J" time="0.383">
+  <properties/>
+  <testcase name="test set and get numberOfRooms()" classname="models.FlatTest" time="0.001"/>
+  <testcase name="test FUR()" classname="models.FlatTest" time="0.368"/>
+  <testcase name="test toString()" classname="models.FlatTest" time="0.005"/>
+  <testcase name="test getID ()" classname="models.FlatTest" time="0.001"/>
+  <testcase name="test set and get area()" classname="models.FlatTest" time="0.001"/>
+  <testcase name="test Coordinates()" classname="models.FlatTest" time="0.0"/>
+  <testcase name="testHouseCreation()" classname="models.FlatTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
